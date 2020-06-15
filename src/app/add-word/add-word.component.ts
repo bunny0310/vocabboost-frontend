@@ -12,6 +12,8 @@ export interface Word {
   synonyms: string[];
 }
 
+const url = 'https://vocab-booster.herokuapp.com'
+
 @Component({
   selector: 'app-add-word',
   templateUrl: './add-word.component.html',
@@ -41,7 +43,7 @@ export class AddWordComponent implements  OnInit {
     console.log(this.helpersService.fieldsSet);
     if (this.helpersService.addWordFormCheck() === true) {
       this.missingFields = false;
-      this.http.post('http://localhost:3000/api/add-word', {word}, {observe: 'response'}).
+      this.http.post(url + '/api/add-word', {word}, {observe: 'response'}).
       subscribe((response) => {
         if (response.status === 200) {
           this.serverError = false;
