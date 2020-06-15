@@ -1,14 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.text_white {
-    color: #e4e4e4;
-    font-weight: 100;
-}
-.full-form-field {
-    width: 100%;
-}.main {
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,10 +35,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .text-center{
     display: flex;
     justify-content: center;
-  }
-  .with-ribbon {
-      padding-top:5%;
-  }
-  button.red {
-      background-color: #f44336;
   }

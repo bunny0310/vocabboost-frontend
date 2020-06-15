@@ -1,0 +1,28 @@
+<mat-form-field [ngClass]="{'full-form-field': full}">
+    <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+        *ngFor="let type of data"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(type)">
+        {{type}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+        placeholder="Select type(s)"
+        #Input
+        [formControl]="formCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        (matChipInputTokenEnd)="add($event)"
+        (blur)="validate()"
+        (ngModelChange)="validate()"
+        >
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let element of allData" [value]="element">
+        {{element}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+<app-form-error [message]="messageToShow"></app-form-error>

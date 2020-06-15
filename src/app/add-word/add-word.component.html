@@ -1,0 +1,48 @@
+<br><br>
+<div class="main">
+    <div class="header ">
+        <app-ribbon [title]="'Add Word'"></app-ribbon>
+        <mat-card class=" center card mat-elevation-z4">
+            <mat-card-content class="center with-ribbon">
+                    <app-form-error *ngIf="missingFields" [message]="'Please fill out the form correctly!'"></app-form-error>
+                    <app-form-error *ngIf="serverError" [message]="'Server error, please try again'"></app-form-error>
+                    <form class="example-form">
+                        <app-input-field [label]="'What`s your word?'"
+                        [messages]="'Please key in the word!'"
+                        [validations]="'required'"
+                        [alt]="'name'"
+                        [full]="true" [placeholder]="'What`s your word?'" #name></app-input-field>
+
+                        <app-input-field [label]="'Means?'" 
+                        [messages]="'Please enter the meaning of the word'" 
+                        [validations]="'required'"
+                        [alt]="'meaning'"
+                        [full]="true" [placeholder]="'Means?'" #meaning></app-input-field>
+
+                        <app-chip-input [full]="true" [placeholder]="'Add atleast one sentence'"
+                        [validations]="'required'"
+                        [messages]="'Please add atleast one sentence'"
+                        [alt]="'sentence'"
+                        #sentence></app-chip-input>
+
+                        <app-chip-input [full]="true" [placeholder]="'Add tags'" #tags></app-chip-input>
+
+                        <app-chip-input-autocomplete [full]="true" 
+                        [alt]="'types'"      
+                        [validations]="'required'"
+                        [messages]="'Please select atleast one type'"           
+                        [allData]="['noun', 'verb', 'adjective', 'phrasal verb', 'adverb']" #types></app-chip-input-autocomplete>
+
+                        <app-chip-input [full]="true" [placeholder]="'Add a few synonyms'"
+                        [validations]="'required'"
+                        [messages]="'Please add atleast one synonym'"
+                        [alt]="'synonyms'"    
+                        #synonyms></app-chip-input>
+                        <br>
+                        <br>
+                        <button mat-button class="red text_white" (click)="addWord(name,meaning,sentence,tags,synonyms,types)">Add word</button>
+                    </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

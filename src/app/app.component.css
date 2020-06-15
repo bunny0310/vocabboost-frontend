@@ -1,0 +1,43 @@
+
+.sidenav {
+    width: 20%;
+    height: 100%;
+}
+.example-container
+{
+    height: 100%;
+}
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8%;
+}
+div.nav-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8%;
+}
+.nav-buttons button {
+    height:50px;
+    color: #808080;
+    width: 80%;
+}
+.nav-buttons button.selected{
+    background-color: #f44336;
+    color: white;
+    width: 100%;
+    font-weight: 100;
+
+}
+.logo span#logo {
+    font-size: 40px;
+    color: #f44336;
+}
+.logo span#text {
+    font-size: 20px;
+    color: #808080;
+}
