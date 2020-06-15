@@ -11,7 +11,7 @@
                     [matChipInputAddOnBlur]="tagsAddOnBlur"
                     (matChipInputTokenEnd)="tagAdd($event)"
                     (blur)="validate()"
-                    [(ngModel)]="data"
+                    [(ngModel)]="tags"
                     (ngModelChange)="validate()"
                     >
         </mat-chip-list>
