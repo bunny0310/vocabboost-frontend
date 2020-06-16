@@ -43,7 +43,7 @@ export class AddWordComponent implements  OnInit {
     console.log(this.helpersService.fieldsSet);
     if (this.helpersService.addWordFormCheck() === true) {
       this.missingFields = false;
-      this.http.post(url + '/api/add-word', {word: JSON.stringify(word)}, {observe: 'response'}).
+      this.http.post(url + '/api/add-word', {word: JSON.stringify(word).replace('\'', '"')}, {observe: 'response'}).
       subscribe((response) => {
         if (response.status === 200) {
           this.serverError = false;
