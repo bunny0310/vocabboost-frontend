@@ -27,6 +27,7 @@ export class HomePageComponent implements OnInit {
       for (let word of this.words) {
           arr.push(word);
       }
+      console.log(arr);
       this.dataSource.data = arr;
     });
   }
