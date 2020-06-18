@@ -14,9 +14,21 @@
       </div>
         <br>
         <mat-divider></mat-divider>
-        <div class="nav-buttons">
+      <div class="center" *ngIf="authService.isAuthenticated()">
+          <span  style="color:#808080; text-align:center;font-size:16px">
+              Welcome {{username}} !
+          </span>
+      </div>
+      <mat-divider></mat-divider>
+        <div class="nav-buttons" *ngIf="authService.isAuthenticated()">
             <button mat-button color="primary" [ngClass]="{'selected': selected['AddWordComponent']}" class="mat-elevation-z4" [routerLink]="['add-word']"><span class="material-icons">library_add</span>Add word</button>
+            <button mat-button color="primary" class="mat-elevation-z4" (click)="logout()"><span class="material-icons">logout</span>Logout</button>
         </div>
+        <div class="nav-buttons" *ngIf="!authService.isAuthenticated()">
+          <button mat-button color="primary" [ngClass]="{'selected': selected['LoginComponent']}" class=" mat-elevation-z4" [routerLink]="['login']"><span class="material-icons">login</span>Login</button>
+          <br>
+          <button mat-button color="primary" [ngClass]="{'selected': selected['RegisterComponent']}" class=" mat-elevation-z4" [routerLink]="['register']"><span class="material-icons">login</span>Register</button>
+      </div>
     </div>
   </mat-drawer>
   <mat-drawer-content style="background-color: #e6e6e6">

@@ -1,0 +1,30 @@
+<br><br>
+<div class="main">
+    <div class="header ">
+        <app-ribbon [title]="'Login'"></app-ribbon>
+        <mat-card class=" center card mat-elevation-z4">
+            <mat-card-content class="center with-ribbon">
+                    <app-form-error *ngIf="missingFields" [message]="'Please fill out the form correctly!'"></app-form-error>
+                    <app-form-error *ngIf="serverError" [message]="'Server error, please try again'"></app-form-error>
+                    <form class="example-form">
+                        <app-input-field [label]="'Username'"
+                        [messages]="'Please key in your username!'"
+                        [validations]="'required'"
+                        [alt]="'username'"
+                        [full]="true" [placeholder]="'Username?'"  [invokeMethod]="'validateLogin'" #username></app-input-field>
+
+                        <app-input-field [label]="'Password'"
+                        [messages]="'Please key in your password!'"
+                        [validations]="'required'"
+                        [alt]="'password'"
+                        [full]="true" [placeholder]="'Password?'" [password]="true" [invokeMethod]="'validateLogin'" #password></app-input-field>
+
+                        <br>
+                        <br>
+                        <button mat-button class="red text_white" (click)="validateLogin(username,password)">Login</button>
+                    </form>
+                    <br>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddWordComponent } from './add-word/add-word.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService as AuthGuard} from './auth-guard.service';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent},
-  {path: 'add-word', component: AddWordComponent}
+  {path: '', component: HomePageComponent, canActivate: [AuthGuard]},
+  {path: 'add-word', component: AddWordComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({

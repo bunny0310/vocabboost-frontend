@@ -1,0 +1,36 @@
+<br><br>
+<div class="main">
+    <div class="header ">
+        <app-ribbon [title]="'Register'"></app-ribbon>
+        <mat-card class=" center card mat-elevation-z4">
+            <mat-card-content class="center with-ribbon">
+                    <app-form-error *ngIf="missingFields" [message]="'Please fill out the form correctly!'"></app-form-error>
+                    <app-form-error *ngIf="serverError" [message]="'Server error, please try again'"></app-form-error>
+                    <form class="example-form">
+                        <app-input-field [label]="'Username'"
+                        [messages]="'Please key in your username!'"
+                        [validations]="'required'"
+                        [alt]="'username'"
+                        [full]="true" [placeholder]="'Username?'"  [invokeMethod]="'validateRegister'" #username></app-input-field>
+
+                        <app-input-field [label]="'Password'"
+                        [messages]="'Please key in your password!'"
+                        [validations]="'required'"
+                        [alt]="'password'"
+                        [full]="true" [placeholder]="'Password?'" [password]="true" [invokeMethod]="'validateRegister'" #password></app-input-field>
+                        
+                        <!-- <app-input-field [label]="'Confirm password'"
+                        [messages]="'Please verify your password!'"
+                        [validations]="'required,verify'"
+                        [alt]="'password_c'"
+                        [full]="true" [placeholder]="'Re-enter your password'" [password]="true" [invokeMethod]="'validateRegister'" #password_c></app-input-field> -->
+
+                        <br>
+                        <br>
+                        <button mat-button class="red text_white" (click)="validateRegister(username,password)">Signup</button>
+                    </form>
+                    <br>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

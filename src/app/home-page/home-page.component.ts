@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit {
 
   constructor(private APIService: APIServiceService) { }
   words: [] = [];
+  message = '';
   dataSource = new MatTableDataSource(this.words);
   wordsSub: Subscription;
   displayedColumns: string[] = ['name', 'meaning', 'sentence', 'types', 'tags', 'synonyms'];
@@ -27,7 +28,11 @@ export class HomePageComponent implements OnInit {
       for (let word of this.words) {
           arr.push(word);
       }
-      console.log(arr);
+      if (arr.length < 5) {
+        this.message = 'You need to have atleast 5 words in your dictionary';
+      } else {
+        this.message = '';
+      }
       this.dataSource.data = arr;
     });
   }
