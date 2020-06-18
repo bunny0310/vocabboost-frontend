@@ -20,6 +20,7 @@ div.nav-buttons {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 8%;
+
 }
 .nav-buttons button {
     height:50px;

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tag } from './chip-input/chip-input.component';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import { Tag } from './chip-input/chip-input.component';
 export class HelpersService {
 
   public fieldsSet  = new Set();
+  public fieldsLoginSet  = new Set();
+  public fieldsRegisterSet  = new Set();
   constructor() { }
   includesTag(str: string, list: Tag[]) {
     for (let tag of list) {
@@ -24,6 +27,25 @@ export class HelpersService {
       this.fieldsSet.has('sentence') &&
       this.fieldsSet.has('name') &&
       this.fieldsSet.has('meaning')
+    ) {
+      return true;
+    }
+    return false;
+  }
+  public loginFormCheck() {
+    if (
+      this.fieldsLoginSet.has('username') &&
+      this.fieldsLoginSet.has('password')
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  public registerFormCheck() {
+    if (
+      this.fieldsLoginSet.has('username') &&
+      this.fieldsLoginSet.has('password')
     ) {
       return true;
     }

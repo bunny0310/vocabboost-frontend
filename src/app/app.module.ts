@@ -14,6 +14,9 @@ import { ChipInputAutocompleteComponent } from './chip-input-autocomplete/chip-i
 import { RibbonComponent } from './ribbon/ribbon.component';
 import { InputFieldComponent } from './input-field/input-field.component';
 import { FormErrorComponent } from './form-error/form-error.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { FormErrorComponent } from './form-error/form-error.component';
     ChipInputAutocompleteComponent,
     RibbonComponent,
     InputFieldComponent,
-    FormErrorComponent
+    FormErrorComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,7 @@ import { FormErrorComponent } from './form-error/form-error.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
+    LayoutModule,
     AppRoutingModule,
     MatListModule,
     BrowserAnimationsModule,

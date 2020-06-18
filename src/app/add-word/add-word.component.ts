@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HelpersService } from '../helpers.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 export interface Word {
   name: string;
@@ -25,7 +26,9 @@ export class AddWordComponent implements  OnInit {
 
   missingFields = false;
   serverError = false;
-  constructor(private helpersService: HelpersService, private http: HttpClient, private router: Router) { }
+  constructor(
+  private helpersService: HelpersService, private http: HttpClient, private router: Router,
+  private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -43,15 +46,18 @@ export class AddWordComponent implements  OnInit {
     console.log(this.helpersService.fieldsSet);
     if (this.helpersService.addWordFormCheck() === true) {
       this.missingFields = false;
-      this.http.post(url + '/api/add-word', {word: JSON.stringify(word).replace('\'', '"')}, {observe: 'response'}).
-      subscribe((response) => {
-        if (response.status === 200) {
-          this.serverError = false;
-          this.router.navigate(['']);
-        } else {
-          this.serverError = true;
-        }
-      });
+      const username = this.authService.isAuthenticated() ? JSON.parse(localStorage.getItem('userInfo')).user : '';
+      if (username !== '') {
+        this.http.post(url + '/api/add-word', {word: JSON.stringify(word).replace('\'', '"'), username}, {observe: 'response'}).
+        subscribe((response) => {
+          if (response.status === 200) {
+            this.serverError = false;
+            this.router.navigate(['']);
+          } else {
+            this.serverError = true;
+          }
+        });
+      }
     } else {
       this.missingFields = true;
     }

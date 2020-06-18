@@ -1,7 +1,7 @@
 <mat-form-field [ngClass]="{'full-form-field': full}">
         <mat-label>{{label}}</mat-label>
             <input matInput [(ngModel)]="value" [placeholder]="placeholder" [value]="value" (blur)="validate()"
-            (ngModelChange)="validate()"
+            (ngModelChange)="validate()" [type]="password?'password':'text'"
             >
 </mat-form-field>
 <app-form-error [message]="messageToShow"></app-form-error>
