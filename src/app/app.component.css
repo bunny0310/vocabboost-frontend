@@ -1,4 +1,4 @@
-
+/*laptop and pc */
 .sidenav {
     width: 20%;
     height: 100%;
@@ -25,7 +25,8 @@ div.nav-buttons {
 .nav-buttons button {
     height:50px;
     color: #808080;
-    width: 80%;
+    width: 100%;
+    margin-bottom:10px;
 }
 .nav-buttons button.selected{
     background-color: #f44336;
@@ -41,4 +42,32 @@ div.nav-buttons {
 .logo span#text {
     font-size: 20px;
     color: #808080;
+}
+#welcome-tagline {
+    color:#808080; text-align:center;font-size:16px;
+}
+.menu-open {
+    float: right;
+}
+
+/* mobile */
+
+@media only screen and (max-width: 1150px) {
+    .logo span#text{
+        font-size: 15px;
+    }
+    .nav-buttons button {
+        height:30px;
+        width: 100%;
+        font-size: 10px;
+    }
+    #welcome-tagline{
+        font-size: 12px;
+    }
+    #btn-icon {
+        font-size: 12px;
+    }
+    .sidenav {
+        width: 40%;
+    }
 }

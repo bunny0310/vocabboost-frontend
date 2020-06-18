@@ -1,7 +1,8 @@
 
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened class="sidenav mat-elevation-z4">
+  <mat-drawer [mode]="showContainer?'over':'side'" [position]="showContainer?'end':''" [opened]="!showContainer" class="sidenav mat-elevation-z4" #drawer>
     <div class="sidenav_content">
+        <button mat-button class="menu-close" *ngIf="showContainer" (click)="drawer.close()"><span class="material-icons">close</span></button>
       <div class="logo">
         <span style="text-decoration:none" routerLink="/">
           <span  id="logo" class="material-icons">
@@ -15,23 +16,24 @@
         <br>
         <mat-divider></mat-divider>
       <div class="center" *ngIf="authService.isAuthenticated()">
-          <span  style="color:#808080; text-align:center;font-size:16px">
+          <span  id="welcome-tagline">
               Welcome {{username}} !
           </span>
       </div>
       <mat-divider></mat-divider>
         <div class="nav-buttons" *ngIf="authService.isAuthenticated()">
-            <button mat-button color="primary" [ngClass]="{'selected': selected['AddWordComponent']}" class="mat-elevation-z4" [routerLink]="['add-word']"><span class="material-icons">library_add</span>Add word</button>
-            <button mat-button color="primary" class="mat-elevation-z4" (click)="logout()"><span class="material-icons">logout</span>Logout</button>
+            <button mat-button color="primary" [ngClass]="{'selected': selected['add-word']}" class="mat-elevation-z4" [routerLink]="['add-word']"><span class="material-icons" id="btn-icon">library_add</span>Add word</button>
+            <button mat-button color="primary" class="mat-elevation-z4" (click)="logout()"><span class="material-icons" id="btn-icon">logout</span>Logout</button>
         </div>
         <div class="nav-buttons" *ngIf="!authService.isAuthenticated()">
-          <button mat-button color="primary" [ngClass]="{'selected': selected['LoginComponent']}" class=" mat-elevation-z4" [routerLink]="['login']"><span class="material-icons">login</span>Login</button>
+          <button mat-button color="primary" [ngClass]="{'selected': selected['login']}" class=" mat-elevation-z4" [routerLink]="['login']"><span class="material-icons" id="btn-icon">login</span>Login</button>
           <br>
-          <button mat-button color="primary" [ngClass]="{'selected': selected['RegisterComponent']}" class=" mat-elevation-z4" [routerLink]="['register']"><span class="material-icons">login</span>Register</button>
+          <button mat-button color="primary" [ngClass]="{'selected': selected['register']}" class=" mat-elevation-z4" [routerLink]="['register']"><span class="material-icons" id="btn-icon">login</span>Register</button>
       </div>
     </div>
   </mat-drawer>
   <mat-drawer-content style="background-color: #e6e6e6">
+      <button mat-button class="menu-open" (click)="drawer.toggle()"><span class="material-icons">menu</span></button>
     <router-outlet>
       
     </router-outlet>
