@@ -32,12 +32,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .ribbon {
       background-color: #e94340;
       z-index: 9999;
-      position: absolute;
       height: 50px;
       top: 10px;
-      left:170px;
       /* left: 42%;
       top:-0.5%; */
+      width:70%;
+      padding-top:10px;
       box-shadow: 10px 3px 5px grey;
   }
   .ribbon span{
@@ -51,4 +51,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   button.red {
       background-color: #f44336;
+  }
+
+  /*mobile*/
+  @media only screen and (max-width: 1150px), (max-height: 600px){
+    .card {
+        min-height: 25px;
+      }    
   }

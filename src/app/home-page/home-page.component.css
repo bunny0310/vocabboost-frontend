@@ -9,6 +9,7 @@ border-left: 1px solid #e4e4e4;
 border-right: 1px solid #e4e4e4;
 width: auto;
 min-width:70px;
+font-size: 16px;
 }
 th {
 background-color: #e94340;
@@ -32,3 +33,11 @@ table {
 border-spacing: 0 10px !important;
 border-collapse: collapse;
 } 
+
+/* mobile */
+@media only screen and (max-width: 1150px), (max-height: 600px) {
+    td.mat-cell, th.mat-header-cell {
+        min-width:150px;
+        font-size: 12px;
+        }   
+}
