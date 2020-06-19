@@ -1,0 +1,33 @@
+<mat-accordion multi="true">
+
+        <mat-expansion-panel *ngFor="let word of data">
+          <mat-expansion-panel-header collapsedHeight="*" style="height: auto!important; min-height:50px!important ">
+            <b>{{word.name}}</b>
+          </mat-expansion-panel-header>
+      
+          <b>Meaning: </b>{{word.meaning}}
+          <br>
+          <b>Sentence(s): </b> 
+          <br>
+          <mat-chip-list>
+              <mat-chip *ngFor="let sentence of word.sentence">{{sentence.tag}}</mat-chip>
+          </mat-chip-list>
+          <b>Tag(s): </b> 
+          <br>
+          <mat-chip-list>
+              <mat-chip *ngFor="let tag of word.tags">{{tag.tag}}</mat-chip>
+          </mat-chip-list>
+          <b>Type(s): </b> 
+          <br>
+          <mat-chip-list>
+                <mat-chip *ngFor="let type of word.types">{{type}}</mat-chip>
+          </mat-chip-list>
+          <b>Synonyms: </b> 
+          <br>
+          <mat-chip-list>
+                <mat-chip *ngFor="let synonym of word.synonyms">{{synonym.tag}}</mat-chip>
+          </mat-chip-list>
+      
+        </mat-expansion-panel>
+      
+      </mat-accordion>

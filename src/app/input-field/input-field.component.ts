@@ -47,8 +47,7 @@ export class InputFieldComponent implements OnInit {
         this.messageToShow = '';
         this.helpersService.fieldsLoginSet.add(this.alt);
       }
-    }
-    else {
+    } else {
       if (this.value === '' && this.validationsArray.includes('required')) {
         this.messageToShow = this.messagesArray[0];
         this.helpersService.fieldsSet.delete(this.alt);
