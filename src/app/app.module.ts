@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,
-  MatDividerModule, MatCardModule, MatInputModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatTableModule } from '@angular/material';
+  MatDividerModule, MatCardModule, MatInputModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatTableModule, MatExpansionModule, MatStepperModule } from '@angular/material';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddWordComponent } from './add-word/add-word.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ import { FormErrorComponent } from './form-error/form-error.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RegisterComponent } from './register/register.component';
+import { MobileHomePageComponent } from './mobile-home-page/mobile-home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,15 @@ import { RegisterComponent } from './register/register.component';
     InputFieldComponent,
     FormErrorComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MobileHomePageComponent
   ],
   imports: [
     BrowserModule,
     MatInputModule,
     MatFormFieldModule,
+    MatStepperModule,
+    MatExpansionModule,
     ReactiveFormsModule,
     FormsModule,
     LayoutModule,

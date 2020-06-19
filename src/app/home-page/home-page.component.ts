@@ -3,6 +3,7 @@ import { APIServiceService } from '../apiservice.service';
 import { Subscription } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
 import { MatTableDataSource } from '@angular/material';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home-page',
@@ -12,9 +13,10 @@ import { MatTableDataSource } from '@angular/material';
 
 export class HomePageComponent implements OnInit {
 
-  constructor(private APIService: APIServiceService) { }
+  constructor(private APIService: APIServiceService, public breakpointObserver: BreakpointObserver) { }
   words: [] = [];
   message = '';
+  showContainer = false;
   dataSource = new MatTableDataSource(this.words);
   wordsSub: Subscription;
   displayedColumns: string[] = ['name', 'meaning', 'sentence', 'types', 'tags', 'synonyms'];
@@ -34,6 +36,15 @@ export class HomePageComponent implements OnInit {
         this.message = '';
       }
       this.dataSource.data = arr;
+    });
+    this.breakpointObserver
+    .observe(['(max-width: 1150px)', '(max-height:600px)'])
+    .subscribe((state: BreakpointState) => {
+      if (state.matches) {
+        this.showContainer = true;
+      } else {
+        this.showContainer = false;
+      }
     });
   }
 

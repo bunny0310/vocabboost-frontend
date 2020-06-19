@@ -33,7 +33,7 @@
     </div>
   </mat-drawer>
   <mat-drawer-content style="background-color: #e6e6e6">
-      <button mat-button class="menu-open" (click)="drawer.toggle()"><span class="material-icons">menu</span></button>
+      <button mat-button *ngIf="showContainer" class="menu-open" (click)="drawer.toggle()"><span class="material-icons">menu</span></button>
     <router-outlet>
       
     </router-outlet>
