@@ -34,7 +34,7 @@ export class AddWordComponent implements  OnInit {
   }
 
   addWord(name, meaning, sentence, tags, synonyms, types) {
-
+    this.helpersService.loading = true;
     const word: Word = {
       name: name.value,
       meaning: meaning.value,
@@ -52,6 +52,7 @@ export class AddWordComponent implements  OnInit {
         subscribe((response) => {
           if (response.status === 200) {
             this.serverError = false;
+            this.helpersService.loading = false;
             this.router.navigate(['']);
           } else {
             this.serverError = true;

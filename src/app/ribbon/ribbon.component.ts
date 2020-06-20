@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HelpersService } from '../helpers.service';
 
 @Component({
   selector: 'app-ribbon',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RibbonComponent implements OnInit {
 
   @Input() title = '';
-  constructor() { }
+  constructor(public helpersService: HelpersService) { }
 
   ngOnInit() {
   }
