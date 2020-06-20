@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
 import { MatTableDataSource } from '@angular/material';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { HelpersService } from '../helpers.service';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +14,8 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 export class HomePageComponent implements OnInit {
 
-  constructor(private APIService: APIServiceService, public breakpointObserver: BreakpointObserver) { }
+  constructor(private APIService: APIServiceService,
+  public helpersService: HelpersService, public breakpointObserver: BreakpointObserver) { }
   words: [] = [];
   message = '';
   showContainer = false;
@@ -22,6 +24,7 @@ export class HomePageComponent implements OnInit {
   displayedColumns: string[] = ['name', 'meaning', 'sentence', 'types', 'tags', 'synonyms'];
   ngOnInit() {
     this.APIService.getWords('random');
+    this.helpersService.loading = true;
     this.APIService.getWordsUpdateListener()
     .subscribe(response => {
       this.words = response.data;
@@ -36,6 +39,7 @@ export class HomePageComponent implements OnInit {
         this.message = '';
       }
       this.dataSource.data = arr;
+      this.helpersService.loading = false;
     });
     this.breakpointObserver
     .observe(['(max-width: 1150px)', '(max-height:600px)'])

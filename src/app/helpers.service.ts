@@ -10,6 +10,7 @@ export class HelpersService {
   public fieldsSet  = new Set();
   public fieldsLoginSet  = new Set();
   public fieldsRegisterSet  = new Set();
+  public loading = false;
   constructor() { }
   includesTag(str: string, list: Tag[]) {
     for (let tag of list) {
@@ -18,6 +19,10 @@ export class HelpersService {
       }
     }
     return false;
+  }
+
+  public toogleLoader() {
+    this.loading = !this.loading;
   }
 
   public addWordFormCheck() {
