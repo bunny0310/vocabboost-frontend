@@ -36,8 +36,8 @@
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
                     </div>
-
                     <app-mobile-home-page *ngIf="showContainer" [data]="words"></app-mobile-home-page>
+                    <mat-paginator length="100" pageSize="5"></mat-paginator>
             </mat-card-content>
         </mat-card>
     </div>

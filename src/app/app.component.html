@@ -33,6 +33,14 @@
     </div>
   </mat-drawer>
   <mat-drawer-content style="background-color: #e6e6e6">
+      <!-- <div>
+          <mat-form-field style="width:30%;float:right;position:relative">
+              <mat-label>Search</mat-label>
+              <input matInput placeholder="search for a word by name,meaning,tags etc.">
+              <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+      </div> -->
+      <br>
       <button mat-button *ngIf="showContainer" class="menu-open" (click)="drawer.toggle()"><span class="material-icons">menu</span></button>
     <router-outlet>
       
