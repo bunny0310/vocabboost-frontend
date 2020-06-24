@@ -33,11 +33,11 @@ export class HomePageComponent implements OnInit {
       for (let word of this.words) {
           arr.push(word);
       }
-      if (arr.length < 5) {
-        this.message = 'You need to have atleast 5 words in your dictionary';
-      } else {
-        this.message = '';
-      }
+      // if (arr.length < 5) {
+      //   this.message = 'You need to have atleast 5 words in your dictionary';
+      // } else {
+      //   this.message = '';
+      // }
       this.dataSource.data = arr;
       this.helpersService.loading = false;
     });
