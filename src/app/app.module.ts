@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,
-  MatDividerModule, MatCardModule, MatInputModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatTableModule, MatExpansionModule, MatStepperModule, MatProgressBarModule, MatPaginatorModule } from '@angular/material';
+  MatDividerModule, MatCardModule, MatInputModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatTableModule, MatExpansionModule, MatStepperModule, MatProgressBarModule, MatPaginatorModule, MatSelectModule } from '@angular/material';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddWordComponent } from './add-word/add-word.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -38,6 +38,7 @@ import { AllWordsComponent } from './all-words/all-words.component';
   imports: [
     BrowserModule,
     MatInputModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatProgressBarModule,

@@ -6,6 +6,7 @@ td.mat-cell:last-child {
     /* row spacing / margin */
     border-spacing: 0 10px !important;
     border-collapse: collapse;
+    width: 100%;
     } 
     
     /* mobile */

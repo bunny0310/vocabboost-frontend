@@ -4,7 +4,26 @@
     <div class="header ">
         <app-ribbon [title]="'List of words'"></app-ribbon>
         <mat-card class=" card center mat-elevation-z4">
-            <mat-card-content class="with-ribbon" style="overflow-x:auto;">
+            <mat-card-subtitle>
+                <div class="all-words-search">
+                    <mat-form-field style="padding-right:10px">
+                        <mat-label>Select a filter</mat-label>
+                        <mat-select [(value)]="searchType" (selectionChange)="search()">
+                            <mat-option value="">No filters</mat-option>
+                            <mat-option value="Name">Name</mat-option>
+                            <mat-option value="Tags">Tags</mat-option>
+                            <mat-option value="Meaning">Meaning</mat-option>
+                            <mat-option value="Synonyms">Synonyms</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field> 
+                        <mat-label>Search by tags,name,meaning etc</mat-label>
+                        <input [(ngModel)]="searchKeyword" (blur)="search()"  (keyup)="search()" (change)="search()" matInput placeholder="Search by tags,name,meaning etc">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+            </mat-card-subtitle>
+            <mat-card-content class="with-ribbon" style="overflow-x:auto; width:100%;">                    
                     <div style="overflow-x:auto;" *ngIf="!showContainer">
                     <span class="mat-body-2" *ngIf="helpersService.loading">Loading....</span>
                     <table *ngIf="!helpersService.loading" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -36,8 +55,10 @@
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
                     </div>
-                    <app-mobile-home-page *ngIf="showContainer" [data]="words"></app-mobile-home-page>
-                    <mat-paginator length="100" pageSize="5"></mat-paginator>
+                    <app-mobile-home-page *ngIf="showContainer" [data]="setWords()"></app-mobile-home-page>
+                    <mat-paginator [length]="words.length" [pageSize]="pageSize" [pageIndex]="pageIndex" 
+                    [pageSizeOptions]="[5, 10, 25, 300]"
+                    (page)="onPageFired($event)"></mat-paginator>
             </mat-card-content>
         </mat-card>
     </div>
