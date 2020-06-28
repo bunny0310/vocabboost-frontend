@@ -4,8 +4,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Subject } from 'rxjs';
 import { AuthService } from './auth.service';
 
-//const url = 'https://vocab-booster.herokuapp.com';
-const url = 'http://localhost:3000';
+const url = 'https://vocab-booster.herokuapp.com';
+//const url = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
