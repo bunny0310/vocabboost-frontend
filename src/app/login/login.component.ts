@@ -6,6 +6,7 @@ import { AuthService } from '../auth.service';
 
 
 const url = 'https://vocab-booster.herokuapp.com';
+//const url = 'http://localhost:3000';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,10 @@ export class LoginComponent implements OnInit {
     if (this.helpersService.loginFormCheck()) {
       this.missingFields = false;
       const data = {username: username.value, password: password.value};
-      this.http.post<any>(url + '/api/login', {username: username.value, password: password.value}, {observe: 'response'})
+      this.http.post<any>(url + '/api/login', {username: username.value, password: password.value}, {
+        observe: 'response',
+        withCredentials: true
+      })
       .subscribe((response) => {
         console.log(response);
         if (response.status !== 200) {

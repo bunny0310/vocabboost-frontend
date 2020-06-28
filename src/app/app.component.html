@@ -23,6 +23,7 @@
       <mat-divider></mat-divider>
         <div class="nav-buttons" *ngIf="authService.isAuthenticated()">
             <button mat-button color="primary" [ngClass]="{'selected': selected['add-word']}" class="mat-elevation-z4" [routerLink]="['add-word']"><span class="material-icons" id="btn-icon">library_add</span>Add word</button>
+            <button mat-button color="primary" [ngClass]="{'selected': selected['words']}" class="mat-elevation-z4" [routerLink]="['words']"><span class="material-icons" id="btn-icon">list</span>All words</button>
             <button mat-button color="primary" class="mat-elevation-z4" (click)="logout()"><span class="material-icons" id="btn-icon">logout</span>Logout</button>
         </div>
         <div class="nav-buttons" *ngIf="!authService.isAuthenticated()">
