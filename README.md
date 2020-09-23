@@ -1,3 +1,7 @@
+#VocabBooster
+This is the frontend code of a words management software that enables the users to keep track of new words and provides them with a comprehensive search panel to 
+look them up easily when needed. Deployed to the basic account on Heroku and hence not scalable. 
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
